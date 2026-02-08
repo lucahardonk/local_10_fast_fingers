@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  typing-test:
+    build: .
+    container_name: typing-test-app
+    ports:
+      - "5000:5000"
+    volumes:
+      - typing-test-data:/app/instance
+    restart: unless-stopped
+    environment:
+      - FLASK_ENV=production
+
+volumes:
+  typing-test-data:
